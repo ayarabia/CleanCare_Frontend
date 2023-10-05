@@ -1,16 +1,30 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from "react";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Layout from "./components/layout";
+import Home from "./Pages/Home";
+import About from "./Pages/About";
 
-function App() {
+const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "about", element: <About /> },
+        // {path: "services", element:<Services/>},
+        // {path: "contact", element:<Contact/>},
+        // {path: "login", element:<Login/>}
+        // {path: "*", element:<NotFound/>}
+      ],
+    },
+  ]);
+
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-center text-Secondary">
-        Hello world!
-      </h1>
+      <RouterProvider router={router} />
     </>
   );
-}
+};
 
 export default App;
