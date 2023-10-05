@@ -1,0 +1,8 @@
+.signUp .heading {
+  font-size: 24px;
+}
+.signUp .circle {
+  top: 50%;
+  left: 0px;
+  transform: translate(-50%);
+}
